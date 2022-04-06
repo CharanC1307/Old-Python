@@ -1,0 +1,44 @@
+(function () {var it_id=505517;var html="<div id=\"CPABUILD_MODAL\">\r\n    <!-- Modal content -->\r\n    <div id=\"CPABUILDMODALCONTENT\">\r\n        <div id=\"CPABUILDMODALHEADER\"> <button type=\"button\" class=\"close\" id=\"CPABUILD_MODAL_CLOSE\" aria-label=\"Close\"><\/button>\r\n            <div id=\"CPABUILDMODALTITLE\"><\/div><\/div>\r\n        <div id=\"CPABUILDMODALBODY\">\r\n            <iframe id=\"CPABUILDOFFERS\" scrolling=\"no\" src=\"\"><\/iframe>\r\n        <\/div>\r\n        <div id=\"CPABUILDMODALFOOTER\">\r\n            <p id=\"CPABUILDMODALFOOTERTEXT\"><\/p>\r\n        <\/div>\r\n    <\/div>\r\n<\/div>\r\n";var css="\/content_lockers\/RPG\/css.css";var cssDIR="RPG";var defaultSettings={"primary_color":{"title":"Primary Color","default":"#e23131","type":"color","small":"Color for button, spinner, and bold text.","for":"html","css":{"target":"strong","rule":"color"}},"title_color":{"title":"Title Color","default":"#ccc1a0","type":"color","for":"html","css":{"target":"#CPABUILDMODALTITLE","rule":"color"}},"footer_color":{"title":"Footer Color","default":"#ccc1a0","type":"color","for":"html","css":{"target":"#CPABUILDMODALFOOTERTEXT","rule":"color"}},"background_color":{"title":"Background Color","default":"#061D25","type":"color","for":"html","css":{"target":"#CPABUILDMODALCONTENT","rule":"background"}},"number_offers":{"title":"Number of Offers","default":5,"type":"number","small":""},"number_offers_required":{"title":"Offers Required","default":1,"type":"number","small":"Offers required for unlock."},"payout_required":{"title":"Payout Required (Cents)","default":1,"type":"number","small":"Payout required (in cents). 500 = $5.00"},"onClose":{"title":"On Offer Complete","default":"redirect","type":"select","options":{"Close Locker":"close_locker","Redirect to URL":"redirect"}},"onCloseURL":{"title":"Redirect URL","default":"http:\/\/cpabuild.com\/public\/redirect.php?lead_id=%lead_id%","type":"text","small":"The URL the visitor will hit after completing an offer. Only enabled if option above is set to redirect."},"content_locker_title_text":{"title":"Content Locker Title","default":"Human Verification Required","type":"text","small":"May be overwritten by template settings."},"content_locker_footer_text":{"title":"Content Locker Footer Text","default":"Points added <strong>automatically<\/strong> to your game upon survey completion.","type":"text","small":"May be overwritten by template settings."},"overlay_color":{"title":"BG Overlay Color","default":"#000000","type":"color","small":"Background color of overlay"},"overlay_opacity":{"title":"Overlay Opacity","default":"0.4","type":"text","small":"Overlay Opacity (0 for transparent, 1 for opaque)"},"animation":{"title":"Entrance Animation","default":"CPABUILD_animateTop","type":"select","options":{"Drop From Top":"CPABUILD_animateTop","Fade In":"CPABUILD_fadeIn","Slide From Right":"CPABUILD_slideRight","Slide Up":"CPABUILD_slideUp","Slide From Right (3D)":"CPABUILD_slideFall","Spin In":"CPABUILD_spinIn"}},"animation_duration":{"title":"Animation Duration (ms)","default":"600","type":"number","small":"1000ms = 1 second"},"disable_right_click":{"title":"Disable Right Click","default":"0","type":"toggle","small":"Right click will be disabled for the entire page."},"verification_captcha":{"title":"Verification Captcha","default":"0","type":"toggle","small":"Show fake captcha box before offers"},"escape_key_close":{"title":"Escape Key Close","default":"0","type":"toggle","small":"If enabled, user can exit content locker with escape key."}};var userSettings={"primary_color":"#529c32","title_color":"#ffffff","footer_color":"#f5f5f5","background_color":"#ffffff","number_offers":5,"number_offers_required":1,"payout_required":1,"onClose":"close_locker","onCloseURL":"","content_locker_title_text":"<strong>Complete at Least ONE Offers to Continue Access the Page<\/strong>","content_locker_footer_text":"The page will be <strong>automatically<\/strong> opened after at least ONE offer completion.","overlay_color":"#333333","overlay_opacity":"0.6","animation":"CPABUILD_spinIn","animation_duration":300,"disable_right_click":0,"verification_captcha":0,"escape_key_close":0};cpaBuildExecuteWithBody();
+function cpaBuildExecuteWithBody(){
+    if(typeof document.getElementsByTagName("body")[0]=="undefined"){
+        setTimeout(cpaBuildExecuteWithBody,1);
+    }
+    //Specific CSS
+    CPABUILDContentLocker.setTemplateCSSDir(cssDIR);
+
+    var specificCSSID="CPABUILDSPECIFICSTYLE";
+    var currentCSSEl=document.getElementById(specificCSSID);
+    CPABUILDContentLocker.removeElByID("CPABUILD_MODAL_CONTAINER");
+/*    if(!currentCSSEl){
+        addCSSLink();
+    }
+    else if(currentCSSEl.dataset.it!=it_id){
+        {
+            CPABUILDContentLocker.removeElByID(specificCSSID);
+            addCSSLink();
+        }
+    }*/
+
+/*    function addCSSLink(){
+        var l= document.createElement("link");
+        l.setAttribute("data-it",it_id);
+        l.rel="stylesheet";
+        l.id=specificCSSID;
+        l.href=CPABUILDContentLocker.prefix+"templates.cpabuild.com"+css;
+        document.getElementsByTagName("head")[0].appendChild(l);
+        var currentCSSEl=document.getElementById(specificCSSID);
+    }*/
+
+
+//HTML
+    CPABUILDContentLocker.removeElByID("CPABUILD_MODAL_CONTAINER");
+    var d=document.createElement("div");
+    d.style="display:none;";
+    d.id="CPABUILD_MODAL_CONTAINER";
+    d.innerHTML=html;
+    document.getElementsByTagName("body")[0].appendChild(d);
+    CPABUILDContentLocker.defaultSettings=defaultSettings;
+    CPABUILDContentLocker.userSettings=userSettings;
+    CPABUILDContentLocker.onVarsChange();
+}
+})();

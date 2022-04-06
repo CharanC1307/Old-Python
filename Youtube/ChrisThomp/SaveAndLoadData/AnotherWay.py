@@ -1,0 +1,11 @@
+baconFile = open('High_Score_In_Space_Invader', 'w')
+baconFile.write('12')
+baconFile.close()
+baconFile = open('High_Score_In_Space_Invader', 'a')
+baconFile.write('')
+
+baconFile.close()
+baconFile = open('High_Score_In_Space_Invader')
+content = baconFile.read()
+baconFile.close()
+print(content)
